@@ -1,94 +1,404 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <title>FsReveal
-</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="FsReveal parses markdown or F# script file and generate reveal.js slides."/>
-    <meta name="author" content="Karlkim Suwanmongkol"/>
-
-    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
-    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
-
-    <link type="text/css" rel="stylesheet" href="./content/style.css" />
-    <script type="text/javascript" src="./content/tips.js"></script>
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<head>
+    <meta charset="utf-8">
+    <title>FsReveal</title>
+    <meta name="description" content="Introduction to FsReveal">
+    <meta name="author" content="Karlkim Suwanmongkol">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="//code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="//code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/deedle.css" />
+    <link type="text/css" rel="stylesheet" href="css/custom.css" />
+    <script src="fsharp.formatting/styles/tips.js" type="text/javascript"></script>
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/fsreveal.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+    </script>
     <!--[if lt IE 9]>
-      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <div class="container">
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="http://fsharp.org">fsharp.org</a></li>
-          <li><a href="http://github.com/fsprojects/FsReveal">github page</a></li>
-        </ul>
-        <h3 class="muted"><a href="./index.html">FsReveal</a></h3>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="span9" id="main">
-          
-<h1><a name="FsReveal" class="anchor" href="#FsReveal">FsReveal</a></h1>
-<p>FsReveal allows you to write beautiful slides in Markdown and brings C# and F# to the <a href="https://github.com/hakimel/reveal.js/" title="reveal.js | HTML presentations made easy">reveal.js</a> web presentation framework.</p>
-<h2><a name="Features" class="anchor" href="#Features">Features</a></h2>
+    <script language="javascript" type="text/javascript">
+        function init()
+        {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+        }
+        window.addEventListener("load", init, false);
+    </script>
+</head>
+<body>
+    <div class="reveal">
+        
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section >
+<section >
+<h1>Tacler la complexité avec Event Sourcing et CQRS</h1>
+</section>
+<section >
+<h2>Visiteur, qui es-tu ?</h2>
 <ul>
-<li>Write your slides in <a href="formatting.html">Markdown</a> or .fsx files</li>
-<li>Automatically updates the browser in edit mode on every save</li>
-<li>Syntax highlighting for most programming languages including C#, F# and LaTeX</li>
-<li>Speaker notes; Shows the current slide, next slide, elapsed time and current time</li>
-<li>Built in themes</li>
-<li>Horizontal and vertical slides</li>
-<li>Built in slide transitions using CSS 3D transforms</li>
-<li>Slide overview</li>
-<li>Works on mobile browsers. Swipe your way through the presentation.</li>
+<li>Qui connait Event Sourcing ?</li>
+<li>Qui connait CQRS ?</li>
+<li>Qui connait DDD ?</li>
 </ul>
-<h2><a name="Getting-started" class="anchor" href="#Getting-started">Getting started</a></h2>
+</section>
+</section>
+<section >
+<section >
+<h1>CQRS</h1>
+<aside class="notes">
+Un modèle d'une simplicité incroyable<br/>
+On s'intesse à séparer la gestion des écriture et des lecture de notre système<br/>
+</aside>
+</section>
+<section >
+<h2>CQS</h2>
+<h3>Command Query Separation</h3>
 <ul>
-<li>Read the <a href="getting-started.html">getting started tutorial</a></li>
-<li>Checkout the <a href="formatting.html">formatting docs</a> to learn how to style your slides.</li>
+<li>Command : effets de bord / pas de retour</li>
+<li>Query : retourne des données / pas d'effets de bord</li>
 </ul>
-<h2><a name="Examples" class="anchor" href="#Examples">Examples</a></h2>
-<p>Check out what others have created. Submit a PR if you have something to add to the list.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">void</span> OrderProduct(Product product);
+
+ICollection&lt;Products&gt; GetAllProducts();
+</code></pre></td></tr></table>
+<h3>Un suggestion plus qu'un principe</h3>
+<p>Contre exemple : <em>Stack.Pop()</em>
+<aside class="notes">
+On s'intesse à séparer la gestion des écriture et des lecture de notre système <br/>
+</aside></p>
+</section>
+<section >
+<h2>CQRS</h2>
+<p>Command Query Responsibility Segregation</p>
 <ul>
-<li><a href="http://kimsk.github.io/fsreveal-sample-md/FsReveal.html#/" title="Markdown example">Markdown example</a> by <a href="https://twitter.com/kimsk" title="@kimsk on Twitter">@kimsk</a> <a href="https://github.com/kimsk/fsreveal-sample-md/blob/master/slides/FsReveal.md" title="Markdown example source">(source)</a></li>
-<li><a href="http://kimsk.github.io/fsreveal-sample-fsx/FsReveal.html#/" title=".fsx example">.fsx example</a> by <a href="https://twitter.com/kimsk" title="@kimsk on Twitter">@kimsk</a> <a href="https://github.com/kimsk/fsreveal-sample-fsx/blob/master/slides/FsReveal.fsx" title=".fsx example source">(source)</a></li>
-<li><a href="http://forki.github.io/PaketIntro/">Paket - Intro</a> by <a href="https://twitter.com/sforkmann" title="@sforkmann on Twitter">@sforkmann</a> <a href="https://github.com/forki/PaketIntro/blob/master/slides/index.md">(source)</a></li>
-<li><a href="http://forki.github.io/FAKE.Intro/">FAKE - Intro</a> by <a href="https://twitter.com/sforkmann" title="@sforkmann on Twitter">@sforkmann</a> <a href="https://github.com/forki/FAKE.Intro/blob/master/slides/index.md">(source)</a></li>
-<li><a href="http://troykershaw.github.io/RpgFsharpWorkshop" title="RPG F# Workshop">RPG F# Workshop</a> by <a href="https://twitter.com/troykershaw" title="@troykershaw on Twitter">@troykershaw</a> <a href="https://github.com/troykershaw/RpgFsharpWorkshop" title="RPG F# Workshop source">(source)</a></li>
-<li><a href="http://panesofglass.github.io/TodoBackendFSharp" title="F# on the Web - 0 to production in 12 weeks">F# on the Web - 0 to production in 12 weeks</a> by <a href="https://twitter.com/panesofglass" title="@panesofglass on Twitter">@panesofglass</a> <a href="https://github.com/panesofglass/TodoBackendFSharp" title="F# on the Web source">(source)</a></li>
+<li>Une architecture pour l'écriture</li>
+<li>Une architecture pour la lecture</li>
 </ul>
-<p>More samples can be found in the <a href="http://fsprojects.github.io/FsReveal/formatting.html">formatting docs</a>.</p>
-<h2><a name="Contributing-and-copyright" class="anchor" href="#Contributing-and-copyright">Contributing and copyright</a></h2>
-<p>The project is hosted on <a href="https://github.com/fsprojects/FsReveal">GitHub</a> where you can <a href="https://github.com/fsprojects/FsReveal/issues">report issues</a>, fork
-the project and submit pull requests on the develop branch. If you're adding new public API, please also
-consider adding <a href="https://github.com/fsprojects/FsReveal/tree/develop/docs/content">samples</a> that can be turned into a documentation. You might
-also want to read <a href="https://github.com/fsprojects/FsReveal/blob/develop/README.md">library design notes</a> to understand how it works.</p>
-<p>The library is available under MIT license, which allows modification and
-redistribution for both commercial and non-commercial purposes. For more information see the
-<a href="https://github.com/fsprojects/FsReveal/blob/develop/LICENSE.txt">License file</a> in the GitHub repository.</p>
+<aside class="notes">
+Au niveau architecture, nos command se concentre sur gérer le business et les side effects<br/>
+Les query sont en charge de ramener le plus efficacement possible les données à l'utilisateur, chaque query pouvant se concentrer sur une vue <br/>
+</aside>
+</section>
+<section >
+<h2>Models</h2>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">class</span> Cart 
+{
+    <span class="k">public</span> <span class="k">void</span> AddProduct(ProductId productId) { }    
+    <span class="k">public</span> <span class="k">void</span> RemoveProduct(ProductId productId) { }    
+    <span class="k">public</span> <span class="k">void</span> Validate() { }
+
+    <span class="k">private</span> ICollection&lt;Product&gt; Products { get; set; }
+    <span class="c">//...</span>
+}
+
+<span class="k">public</span> <span class="k">class</span> ProductCartView
+{
+    <span class="k">public</span> ProductId Id { get; }
+    <span class="k">public</span> <span class="k">string</span> Name { get; }
+    <span class="k">public</span> <span class="k">int</span> Quantity { get; }
+}
+</code></pre></td></tr></table>
+<aside class="notes">
+99% des requête sont la lecture et pourtant on structure la base pour l'écriture <br/>
+</aside>
+</section>
+<section >
+<h2>Architecture</h2>
+<p><img src="images/cqrs-es/cqrs.png" alt="apply" /></p>
+<aside class="notes">
+Un modele CQRS simple peut être aussi simple que d'avoir des tables SQL pour l'écriture et des view pour la lecture<br/>
+Queries is what you need to scale in most cases   )<br/>
+Car en général on est sur du 100 query par command voir 1000 queries par command <br/>
+</aside>
+</section>
+</section>
+<section >
+<section >
+<h1>Event Sourcing</h1>
+</section>
+<section >
+<h2>Un peu d'histoire</h2>
+<ul>
+<li>2006 Introduction et formalisation du concept d'Event Sourcing par Greg young</li>
+<li>Des dizaine d'années avant : utilisation dans les mainframes</li>
+</ul>
+</section>
+<section >
+<blockquote>
+<p>State transsitions are an important part of our problem space and should be modeled within our domain</p>
+</blockquote>
+<aside class="notes">
+On s'intéresse plus aux différente étapes plutôt qu'a l'état courant<br/>
+Déterministe et savoir à chaque instant ce qu'il s'est passé<br/>
+Etre capable d'analyser scientifiquement chaque instant<br/>
+Qui a un log d'audit ? Qui peut dire qu'ils sont corrects ? Tout ce qui est régulé a besoin de cela ou pour exister ou se fera fermer.<br/>
+Si vous commencez à modéliser votre audit plutôt que travailler sur l'état courant<br/>
+Aucune entreprises matures n'utilise l'état courant. Assurance, banque, finance, social<br/>
+Choix imposé aux développeurs par le business <br/>
+</aside>
+</section>
+<section >
+<p><img src="images/cqrs-es/comptabilite.jpg" alt="comptabilite" /></p>
+<aside class="notes">
+Dans la vie réel: un journal de gestion comptable<br/>
+Qui a un compte bancaire ? Est-ce que vous pensez que le solde est un une colonne dans une table ?<br/>
+Une balance est une somme de toutes les transactions<br/>
+</aside>
+<p>Ce coté ensemble de transactions est applicable a toute sorte de business</p>
+</section>
+<section >
+<h2>Event structure</h2>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">class</span> EventStorage
+{
+    <span class="k">public</span> Guid EventId { get; }
+    <span class="k">public</span> Guid StreamId { get; }
+    <span class="k">public</span> DateTime Date { get; }
+    <span class="k">public</span> <span class="k">string</span> EventType { get; }
+    <span class="k">public</span> <span class="k">string</span> Payload { get; }
+}
+</code></pre></td></tr></table>
+</section>
+<section >
+<p><img src="images/cqrs-es/modelcurrentstate.png" alt="modelcurrentstate" /></p>
+<aside class="notes">
+Prenons un cas classique avec un panier de courses<br/>
+Qui a refactoré un domain ? Migration scripts etc<br/>
+Que se passe t'il si on a 2 versions qui tourne en même temps ?Est ce qu'il peuvent avoir une vue différente chacun ? <br/>
+</aside>
+</section>
+<section >
+<p><img src="images/cqrs-es/modelevents.png" alt="modelevents" /></p>
+<aside class="notes">
+Event stream<br/>
+On peut retourner de ces faits et retourner vers la version structuré transcient, on peut la supprimer et la recréer   ) <br/>
+</aside>
+</section>
+<section >
+<p><img src="images/cqrs-es/correctpastevents.jpg" alt="correctpastevents" /></p>
+<aside class="notes">
+Ce côté ensemble de transactions est applicable a toute sorte de business<br/>
+Il est illégale de faire des modification, en eventsourcing vous ne pouvez pas le faire. <br/>
+</aside>
+</section>
+<section >
+<h2>Usage</h2>
+<ul>
+<li>decide: f(state, command) -&gt; events</li>
+<li>apply:  f(state, event) -&gt; state</li>
+</ul>
+<p><img src="images/cqrs-es/es-apply.png" alt="es-apply" /></p>
+<aside class="notes">
+left fold of previous behaviors <br/>
+</aside>
+</section>
+<section >
+<p><img src="images/cqrs-es/modelevents2.png" alt="modelevents2" /></p>
+<aside class="notes">
+Qui supprime ou update des données ?<br/>
+Vous pouvez dire que cette donnée n'aura pas de valeur dans 1 an ? Dans 5 ans ?<br/>
+Vous avez fait ce choix ou vous n'y pensez même pas ? La donnée à beaucoup de valeur<br/>
+Projection a n'importe quel point dans l'existence du système, permet le voyage dans le temps<br/>
+Très sympa pour se remettre dans les conditions d'un bug et même créer un test automatisé <br/>
+</aside>
+</section>
+<section >
+<h2>Performances</h2>
+<ul>
+<li>Cout de stockage</li>
+<li>Vitesse d'execution</li>
+</ul>
+<aside class="notes">
+Performances ?<br/>
+Ca doit être très gros ? Combien coutait un disque dur d'1to il y a 10 ans ? Aujourd'hui ? dans 3 ans ?<br/>
+Se soucier de supprimer les évènements ne fait pas sens<br/>
+Si vous n'avez pas une accumulation extrême et hors norme votre cout de stockage va diminuer de plus en plus avec le temps<br/>
+Et ca doit être lent ?<br/>
+Combien faites vous par jour ? 1 millions ? 10 millions ?  )<br/>
+Sur un ordinateur portable de ce type, on peut faire des les 20 000 opérations par seconde.  )<br/>
+Si vous faites le calcul c'est plus d'un milliard d'opération par seconde<br/>
+Et bien en fait c'est bien plus performant que beaucoup de modèles <br/>
+</aside>
+</section>
+<section >
+<h2>Snapshot</h2>
+<p><img src="images/cqrs-es/snapshot.png" alt="modelevents2" /></p>
+<aside class="notes">
+Tous les n events (500, 1000 ?) faire un snapshot<br/>
+Attention a l'obsolescence et la reconstruction des snapshots  )<br/>
+Vous avez fait ce choix ou vous n'y pensez même pas ? La donnée à beaucoup de valeur <br/>
+</aside>
+</section>
+<section >
+<h2>Bonus</h2>
+<ul>
+<li>Audit log</li>
+<li>Append only</li>
+<li>Immutable</li>
+<li>Scale</li>
+<li>Temporal queries</li>
+<li>Debbugging</li>
+<li>Securité (WORM)</li>
+<li>BDD : <strong>Given</strong> events <strong>When</strong> command <strong>Then</strong> events</li>
+</ul>
+<aside class="notes">
+Tres simple a scaler car immutable<br/>
+Super user attack ? Il peut tout supprimer, il est root n'est pas ? Pas de problèmes <br/>
+Write once read many (WORM) drive<br/>
+Les régulateurs vous aimerons si vous avez ce type d'approche <br/>
+</aside>
+</section>
+</section>
+<section >
+<section >
+<aside class="notes">
+CQRS + ES <br/>
+</aside>
+<h1>CQRS + ES !</h1>
+</section>
+<section >
+<p><img src="images/cqrs-es/cqrs-es.png" alt="cqrs-es" /></p>
+<aside class="notes">
+Vous pouvez faire du CQRS sans Event sourcing<br/>
+Mais vous ne pouvez quasiment pas faire de l' Event sourcing sans CQRS <br/>
+</aside>
+</section>
+<section >
+<h2>Polyglot data</h2>
+<p><img src="images/cqrs-es/polyglotdata.png" alt="cqrs-es" /></p>
+<aside class="notes">
+Projections in the read module,<br/>
+La majorité des systèmes on besoin de plusieurs read models<br/>
+Un seul modèle ne peut convenir à tous les scénarios transactions, reporting, recherche, etc <br/>
+</aside>
+</section>
+<section >
+<h2>Eventual consistency</h2>
+<blockquote>
+<p>Most Bounded Contexts can interact withrelaxed consistency.</p>
+</blockquote>
+<aside class="notes">
+Attention enventual != eventuel<br/>
+Consistance à terme<br/>
+Un choix business <br/>
+</aside>
+</section>
+<section >
+<h2>Handle eventual consistency</h2>
+<ul>
+<li>Notifier la GUI pour qu'elle se rafraichisse</li>
+<li>Faire des écrans de confirmation</li>
+<li>Désactiver en attendant la prise en compte</li>
+<li>Fake UI</li>
+<li>Commande validée -&gt; Commande en cours de traitement</li>
+</ul>
+<aside class="notes">
+Attention enventual != eventuel<br/>
+Consistance à terme<br/>
+Un choix business<br/>
+Idempotent<br/>
+![correctpastevents](images/cqrs-es/correctpastevents.jpg)<br/>
+Déterministe et savoir à chaque instant ce qu'il s'est passé<br/>
+Etre capable d'analyser scientifiquement chaque instant<br/>
+Qui a un log d'audit ? Qui peut dire qu'ils sont corrects ? Tout ce qui est régulé a besoin de cela ou pour exister ou se fera fermer. <br/>
+Command are hard to scale<br/>
+Queries are easy because we can use a relaxed consistancy<br/>
+Qui fait des queries complétement consistante ? Qui fait des pessimiste lock sur vos query aujourd'hui ? Et en fait vous êtes éventuellement consistant mais vous ne le savez pas<br/>
+Vous êtes déjà eventualy consistant mais vous n'en prenez pas avantage <br/>
+</aside>
+</section>
+</section>
+<section >
+<h2>Merci !</h2>
+<h2>Questions ?</h2>
+<p>@anthyme</p>
+<p>anthyme@gmail.com</p>
+</section>
 
 
         </div>
-        <div class="span3">
-          <img src="./img/logo-2.png" alt="F# Project" style="width:150px;margin:10px" />  
-          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
-            <li class="nav-header">FsReveal</li>
-            <li><a href="./index.html">Home page</a></li>
-            <li><a href="./getting-started.html">Getting Started</a></li>
-            <li><a href="./formatting.html">Formatting docs</a></li>
-            <li class="divider"></li>            
-            <li><a href="http://github.com/fsprojects/FsReveal">Source Code on GitHub</a></li>
-            <li><a href="./license.html">License</a></li>
-            <li><a href="./release-notes.html">Release Notes</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
-    <a href="http://github.com/fsprojects/FsReveal"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
-  </body>
-  </html>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Add the nohighlight class and data-noescape attribute to code elements that have already been formatted by FSharp.Formatting
+        $('pre.highlighted code').addClass('nohighlight').attr('data-noescape', '');
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+</body>
+</html>
+
