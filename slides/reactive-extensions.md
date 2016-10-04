@@ -1,5 +1,5 @@
-- title : Tacler la complexité avec Event Sourcing et CQRS
-- description : Tacler la complexité avec Event Sourcing et CQRS
+- title : Reactive Extensions
+- description : Reactive Extensions
 - author : Anthyme Caillard
 - theme : Sky
 - transition : default
@@ -18,10 +18,6 @@
 
 ---
 
-> Rx is a library to create and compose event based asynchronous program with observables
-
----
-
 ```csharp
 button.Click += (s, args) => {
     if (something){
@@ -32,6 +28,10 @@ button.Click += (s, args) => {
 button.Click -= /* ???? */
 
 ```
+
+' Event based ?
+' Not composable
+' 
 
 ***
 
@@ -84,9 +84,71 @@ interface IObserver<in T>
 }
 ```
 
+---
+
+![enumerable-observable](images/reactive-extensions/enumerable-observable.png)
+
+
 ***
 
 
+
+
+
+
+
+
+
+## Reactive Extensions
+
+---
+
+> Rx is a library to create and compose event based asynchronous program with observables
+
+---
+
+### Primitives
+
+```csharp
+Observalbe.Empty<int>()     // OnCompleted
+
+Observalbe.Return(42)       // OnNext
+
+Observalbe.Throw<int>(ex)   // OnError
+
+Observalbe.Never<int>()     // Nothing ...
+```
+
+
+***
+
+
+
+sources
+IEnumerable
+event
+subjet
+async code
+
+operator
+throttle
+interval
+delay
+buffer
+
+
+reduce
+filter,accumulate, aggregate, partition
+
+map
+select
+
+combine
+concatenate, merge, pair
+
+control overflow
+
+synchronisationContext
 
 
 
@@ -100,9 +162,14 @@ interface IObserver<in T>
 
 
 
+### Plateformes
+
+- Rx.Net
+- RxJs
+- RxJava
+-
 
 
-
-# Observable Observer
+# Reactive Extensions based architecture
 
 ***
