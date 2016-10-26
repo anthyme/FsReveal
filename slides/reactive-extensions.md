@@ -20,7 +20,7 @@
 
 ```csharp
 button.Click += (s, args) => {
-    if (something){
+    if (something) {
         // raise another event
     }
 }
@@ -31,7 +31,10 @@ button.Click -= /* ???? */
 
 ' Event based ?
 ' Not composable
-' 
+
+---
+
+# Comment baser son application sur un syst
 
 ***
 
@@ -88,6 +91,27 @@ interface IObserver<in T>
 
 ![enumerable-observable](images/reactive-extensions/enumerable-observable.png)
 
+---
+
+```javascript
+var mouseDown = draggable.toObservable("mousedown"),
+    mouseMove = doc.toObservable("mousemove"), 
+    mouseUp = doc.toObservable("mouseup");
+
+var mouseMoves = mouseMove.Skip(1).Zip(mouseMove, (left, right) => {
+        xChange: left.clientX - right.clientX,
+        yChange: left.clientY - right.clientY
+    });
+
+var mouseDrags = mouseDown.SelectMany(md => mouseMoves.TakeUntil(mouseUp));
+
+mouseDrags.Subscribe(evt => 
+    draggable.css({
+        left: draggable.offset().left + evt.xChange,
+        top: draggable.offset().top + evt.yChange
+    }));
+```
+
 
 ***
 
@@ -118,6 +142,7 @@ Observalbe.Throw<int>(ex)   // OnError
 
 Observalbe.Never<int>()     // Nothing ...
 ```
+
 
 
 ***
@@ -155,6 +180,17 @@ synchronisationContext
 
 
 # Observable Observer
+
+***
+
+
+# MVI
+
+## Model View Intent
+
+---
+
+![enumerable-observable](images/reactive-extensions/mvi.png)
 
 ***
 
